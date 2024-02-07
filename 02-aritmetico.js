@@ -15,5 +15,14 @@ console.log("Subtracão =", subtracao);
 console.log("Divisão =", divisao);
 console.log("Multiplicacão=", multiplicacao);
 
+var v1 = 12;
+var v2 = 8;
+console.log(
+  "-------------------------------------------------------------------------------"
+);
+console.log("valores: v1=", v1, "|    valores: v2=", v2);
+console.log("-------------------------------------------------------------------------------");
+console.log("Resto da divisão inteira=", v1 % v2);
+console.log("Exponenciação=", v1 ** v2,"(v1 elevado a v2)");
 //Regras para nomear identificadores (var, const ou let)
 //Podem começar com A-Z, a-z, _ ou $
