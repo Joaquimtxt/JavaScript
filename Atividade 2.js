@@ -60,4 +60,15 @@ console.log(
 console.log("---------------------------");
 //Exercíco 6
 console.log("Exercício 6");
+var velocidade = 95 / 3.6;
+var tempo = 3.5 * 3600;
+var espaçoI = 0;
+var espaçoF = espaçoI + velocidade * tempo;
 
+console.log("Um carro viaja por 3 horas e meia, a 95km/h, qual é o espaço percorrido?")
+console.log("Velocidade de km/h para m/s:", velocidade, "| Tempo, de horas para segundos:", tempo, "| espaço inicial, é onde começou a viagem:", espaçoI)
+console.log("A fórmula é S = S0 + Vt, onde determina o espaço, sendo o resultado do problema:", espaçoF);
+
+var espaçoF = espaçoF / 1000;
+console.log("Ou seja,",  espaçoF, "KM.");
+console.log("-------------------------------------");
