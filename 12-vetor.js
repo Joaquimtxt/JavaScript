@@ -42,3 +42,4 @@ console.table(dinos);
 
 dinos.splice(1, 1); //remove o elemento a partir do índice 1, contando 1.
 console.table(dinos);
+console.table(dinos);
