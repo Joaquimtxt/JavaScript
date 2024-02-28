@@ -9,3 +9,4 @@ var nome = "Joaquim";
 var jogador = true;
 
 console.log("Olá, meu nome é " + nome + "|É jogador?" + jogador);
+
