@@ -40,3 +40,39 @@ console.log(
 var maioridade =
   idade < 16 || idade > 85 ? "Você não pode votar" : "Você pode votar";
 console.log(maioridade);
+
+console.log("----------------------");
+
+var bornyear = 2007;
+console.log(
+  `Estamos no ano de ${actyear}, e a pessoa nasceu em ${bornyear}, logo sua idade é de: ${
+    actyear - bornyear
+  }`
+);
+
+function votar(idade) {
+  if (idade < 16) console.log(`Você não pode Votar`);
+  else if (idade >= 16 && idade < 18)
+    console.log("Pode votar mas não é obrigatório");
+  else console.log("Você pode votar");
+}
+votar(6);
+
+console.log("------------------------");
+
+function votacao(idade) {
+  switch (true) {
+    case idade < 16:
+      console.log("Você não pode votar");
+      break;
+    case idade >= 16 && idade < 18:
+      console.log("Você pode votar, mas não é obrigatório");
+
+      break;
+
+    default:
+      console.log(`Voce Pode Votar`);
+      break;
+  }
+}
+votacao(17);
