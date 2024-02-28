@@ -13,10 +13,12 @@ console.log(
 );
 
 //Função que receba qtd de combustivel de um carro e retorne qnts Kms ele pode viajar com esse combustível. Considere que o veículo faz uma média de 12 Kms
-function distPossivel(combustivel) {
-  return combustivel * 12;
+function distPossivel(combustivel, kml) {
+  return combustivel * kml;
 }
 var litros = 58;
 console.log(
-  `Com ${litros} litros no tanque, você poderá andar ${distPossivel(58)}km`
+  `Com ${litros} litros no tanque, você poderá andar ${distPossivel(58, 12)}km`
 );
+console.log(`Carro 1: 45L -> Percorre ${distPossivel(45,6)}`);
+console.log(`Carro 2: 60L -> Percorre ${distPossivel(60,14)}`);
