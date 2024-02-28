@@ -56,20 +56,16 @@ var usuario = [
 
 console.table(usuario);
 
-console.log("Olá " + usuario[0][0] + "! Seja bem-vindo ao nosso sistema.");
+console.log(`Olá ${usuario[0][0]}! Seja bem-vindo ao nosso sistema.`);
 
 console.log(
-  "Você mora no Endereço " +
-    usuario[0][1] +
-    ", e tem um pet chamado " +
-    usuario[0][2] +
-    "."
-);
+  `Você mora no Endereço
+    ${usuario[0][1]}, e tem um pet chamado
+    ${usuario[0][2]}.`);
 console.log(
-  "Sua idade é " +
-    usuario[0][3] +
-    " e gosta muito da fruta " +
-    usuario[0][4] +
-    "."
+  `Sua idade é 
+    ${usuario[0][3]}, 
+    e gosta muito da fruta
+    ${usuario[0][4]}.`
 );
-console.log("Sua cor favorita é " + usuario[0][5]+".");
+console.log(`Sua cor favorita é " + ${usuario[0][5]}.`);
