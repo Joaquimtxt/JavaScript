@@ -130,7 +130,6 @@ for (var i = 0; i < 3; i++) {
         return
 
       }
-      break;
     }
     default: {
       console.log("Deu Empate");
