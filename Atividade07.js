@@ -58,112 +58,81 @@
 // console.log(`_____|_____|_____`);
 // console.log(`     |     |     `);
 
-var jogo = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
+const tabuleiro = [
+  [" ", " ", " "],
+  [" ", " ", " "],
+  [" ", " ", " "],
 ];
-let jogadorX = "X";
-let jogadorO = "O";
+
+let jogadorAtual = "X";
 
 function jogar(jogador) {
   let linha, coluna;
+
   do {
     linha = Math.floor(Math.random() * 3);
     coluna = Math.floor(Math.random() * 3);
-  } while (jogo[linha][coluna] !== "");
-  jogo[linha][coluna] = jogador;
+  } while (tabuleiro[linha][coluna] !== " ");
+
+  tabuleiro[linha][coluna] = jogador;
+  jogadorAtual = jogadorAtual === "X" ? "O" : "X";
 }
 
-for (var i = 0; i < 9; i++) {
-  if (i % 2 == 0) {
-    jogar(jogadorX);
-    console.table(jogo);
-  } else {
-    jogar(jogadorO);
-    console.table(jogo);
-  }
-}
-
-console.table(jogo);
-
-for (var i = 0; i < 3; i++) {
-  switch (true) {
-    case jogo[i][0] == jogo[i][1] && jogo[i][1] == jogo[i][2]: {
-      if (jogo[i][0] == "X") {
-        console.log(`O Jogador X venceu`);
-        return
-      } else {
-        console.log(`O Jogador O venceu`);
-        return
-      }
-    }
-    case jogo[0][i] == jogo[1][i] && jogo[1][i] == jogo[2][i]: {
-      if (jogo[0][i] == "X") {
-        console.log(`O Jogador X venceu`);
-        return
-
-      } else {
-        console.log(`O Jogador O venceu`);
-        return
-
-      }
-    }
-    case jogo[0][0] == jogo[1][1] && jogo[1][1] == jogo[2][2]: {
-      if (jogo[i][i] === "X") {
-        console.log(`O Jogador X venceu`);
-        return
-
-      } else {
-        console.log(`O Jogador O venceu`);
-        return
-
-      }
-    }
-    case jogo[0][2] == jogo[1][1] && jogo[1][i] == jogo[2][0]: {
-      if (jogo[i][i] === "X") {
-        console.log(`O Jogador X venceu`);
-        return
-
-      } else {
-        console.log(`O Jogador O venceu`);
-        return
-
-      }
-    }
-    default: {
-      console.log("Deu Empate");
-      return
-
+function verificaVencedor() {
+  for (let i = 0; i < 3; i++) {
+    if (
+      //Verifica coluna
+      tabuleiro[0][i] === tabuleiro[1][i] &&
+      tabuleiro[1][i] === tabuleiro[2][i] &&
+      tabuleiro[1][i] !== " "
+    ) {
+      console.log(`O jogador ${tabuleiro[1][i]} ganhou`);
+      return tabuleiro[1][i];
+    } else if (
+      //Verifica linha
+      tabuleiro[i][0] === tabuleiro[i][1] &&
+      tabuleiro[i][1] === tabuleiro[i][2] &&
+      tabuleiro[i][1] !== " "
+    ) {
+      console.log(`O jogador ${tabuleiro[i][1]} ganhou`);
+      return tabuleiro[i][1];
     }
   }
+  if (
+    // Vefifica diagonal
+    tabuleiro[0][0] === tabuleiro[1][1] &&
+    tabuleiro[1][1] === tabuleiro[2][2] &&
+    tabuleiro[1][1] !== " "
+  ) {
+    console.log(`O jogador ${tabuleiro[1][1]} ganhou`);
+    return tabuleiro[1][1];
+  } else if (
+    // Vefifica diagonal
+    tabuleiro[0][2] === tabuleiro[1][1] &&
+    tabuleiro[1][1] === tabuleiro[2][0] &&
+    tabuleiro[1][1] !== " "
+  ) {
+    console.log(`O jogador ${tabuleiro[1][1]} ganhou`);
+    return tabuleiro[1][1];
+  }
+
+  if (!tabuleiro.some((event) => event.includes(" "))) {
+    console.log("O jogo empatou");
+    return "Empate";
+  }
+  return "";
 }
 
-// for (let i = 0; i <= jogo.length; i++) {
-//   jogar(jogadorX);
-//   jogar(jogadorO);
-//         break;
-//     }
-//     switch (jogo) {
-//       case [0,0][0,1][0,2] == "X":
-//         case [0,0][1,1][2,2] == "X":
-//           case [0,0][1,0][2,0] == "X":
-//             case [0,1][1,1][1,2] == "X":
-//               case [0,2][1,2][2,2] == "X":
-//                 case [1,0][1,1][1,2] == "X":
-//                   case [2,0][2,1][2,2] == "X":
-//                 console.log("Você ganhou!");
-//                 case [0,0][0,1][0,2] == "O":
-//                   case [0,0][1,1][2,2] == "O":
-//                     case [0,0][1,0][2,0] == "O":
-//                       case [0,1][1,1][1,2] == "O":
-//                         case [0,2][1,2][2,2] == "O":
-//                           case [1,0][1,1][1,2] == "O":
-//                             case [2,0][2,1][2,2] == "O":
-//                               console.log("Você perdeu");
-//         break;
+let vencedor = "";
 
-//       default:
-//         console.log("Empate")
-//     }
-// console.table(jogo);
+while (!vencedor) {
+  jogar(jogadorAtual);
+  console.table(tabuleiro);
+  vencedor = verificaVencedor();
+
+  if (!vencedor) {
+    jogar(jogadorAtual);
+    console.table(tabuleiro);
+    vencedor = verificaVencedor();
+  }
+}
