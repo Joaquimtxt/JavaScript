@@ -92,10 +92,10 @@ const txt3 = "O rato não fez nada naquela noite...";
 
 console.log(txt1);
 console.log(txt2);
-console.log("É iguaL?")
+console.log("É iguaL?");
 console.log(comparar(txt1, txt2)); //true or false
-console.log(txt3)
-console.log("É igual a eles??")
+console.log(txt3);
+console.log("É igual a eles??");
 console.log(comparar(txt1, txt3));
 
 console.log("---------------2-----------------");
@@ -107,7 +107,7 @@ const string = "Ab 1 2 3 1 4 1 9sasp";
 const numeros = extrairNumeros(string);
 console.log(numeros);
 
-///////////////////////////3///////////////////
+console.log("------------------------3--------------------");
 
 function inverterFrase(frase) {
   const palavras = frase.split("");
